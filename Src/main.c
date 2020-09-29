@@ -24,6 +24,7 @@
 
 int main(void)
 {
+	//TEST
   /*
    *  DO NOT WRITE TO THE WHOLE REGISTER!!!
    *  Write to the bits, that are meant for change.
