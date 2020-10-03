@@ -47,20 +47,32 @@ int main(void)
 
 
   /* Enable clock for GPIO port A*/
-
-	//type your code for GPIOA clock enable here:
-
+  RCC_AHBENR_REG |= (uint32_t)(0x1 << 17);
 
   /* GPIOA pin 3 and 4 setup */
+  //set pin 3 as input
+  GPIOA_MODER_REG &= ~(uint32_t)(0x3 << 6);
 
-	//type your code for GPIOA pins setup here:
+  //set pin 4 as output
+  GPIOA_MODER_REG &= ~(uint32_t)(0x3 << 8);
+  GPIOA_MODER_REG |= (uint32_t)(0x1 << 8);
 
+  //set push-pull output on pin 4
+  GPIOA_OTYPER_REG &= ~(uint32_t)(0x1 << 4);
+
+  //set low speed output on pin 4
+  GPIOA_OSPEEDER_REG &= ~(uint32_t)(0x1 << 8);
+
+  // set pull up for pin 3
+  GPIOA_PUPDR_REG &= ~(uint32_t)(0x3 << 6);
+  GPIOA_PUPDR_REG |= (uint32_t)(0x1 << 6);
+
+  //set no pull for pin 4
+  GPIOA_PUPDR_REG &= ~(uint32_t)(0x3 << 8);
 
   while (1)
   {
-	  // TUTO TO BUDE BLIKAT
-	  // vermi som šotbornik
-	  if(BUTTON_GET_STATE)
+	  if(BUTTON_GET_STATE) //when button pushed
 	  {
 		  // 0.25s delay
 		  LL_mDelay(250);
