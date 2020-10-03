@@ -58,6 +58,8 @@ int main(void)
 
   while (1)
   {
+	  // TUTO TO BUDE BLIKAT
+	  // vermi som šotbornik
 	  if(BUTTON_GET_STATE)
 	  {
 		  // 0.25s delay
