@@ -56,6 +56,8 @@ int main(void)
 
   while (1)
   {
+
+	  // COMENT TEST git 60 riadok
 	  //GPIO IDR, read input from pin 6
 	  if(!(*((volatile uint32_t *)((uint32_t)(0x48000400 + 0x10U))) & (1 << 6)))
 	  {
